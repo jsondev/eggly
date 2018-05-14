@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app>
+<html ng-app='Eggly'>
 
 <head>
     <meta charset="utf-8">
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/css/animations.css">
 </head>
 
-<body>
+<body ng-controller="MainCtrl">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
@@ -21,41 +21,20 @@
                     <img class="logo" src="assets/img/eggly-logo.png">
                 </a>
                 <ul class="nav nav-sidebar">
-                    <li>
-                        <a href="#">Category</a>
-                    </li>
-                    <li>
-                        <a href="#">Category</a>
-                    </li>
-                    <li>
-                        <a href="#">Category</a>
+                    <li ng-repeat="category in categories">
+                        <a href="#">{{category.name}}</a>
                     </li>
                 </ul>
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                <div ng-init="hello='world'">
-                    <h1>{{hello}}</h1>
-                    <input type="text" name="hello" id="" ng-model="hello">
+                <div ng-repeat="bookmark in bookmarks">
                     <button type="button" class="close">&times;</button>
                     <button type="button" class="btn btn-link">
                         <span class="glyphicon glyphicon-pencil"></span>
                     </button>
-                    <a href="#" target="_blank">Bookmark</a>
+                    <a ng-href="{{bookmark.url}}" target="_blank">{{bookmark.title}}</a>
                 </div>
-                <div>
-                    <button type="button" class="close">&times;</button>
-                    <button type="button" class="btn btn-link">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </button>
-                    <a href="#" target="_blank">Bookmark</a>
-                </div>
-                <div>
-                    <button type="button" class="close">&times;</button>
-                    <button type="button" class="btn btn-link">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </button>
-                    <a href="#" target="_blank">Bookmark</a>
-                </div>
+                
                 <hr/>
             </div>
         </div>
@@ -64,6 +43,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+    <script src="app/eggly-app.start.js"></script>
 </body>
 
 </html>
