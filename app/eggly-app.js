@@ -1,4 +1,6 @@
 angular.module('Eggly', [
+    'categories',
+    'categories.bookmarks'
 
 ])
     .controller('MainCtrl', function ($scope) {
